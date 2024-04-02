@@ -10,10 +10,10 @@ function draw() {
     ctx.fill();
 }
 function drawIt() {
-    var x = 150;
-    var y = 150;
-    var dx = 2;
-    var dy = 4;
+    var x = 250;
+    var y = 250;
+    var dx = 3;
+    var dy = 5;
     var WIDTH;
     var HEIGHT;
     var r = 10;
@@ -70,7 +70,6 @@ function drawIt() {
 
     }
 
-    init();
     var intervalId = init();
     var paddlex;
     var paddleh;
@@ -172,11 +171,11 @@ function drawIt() {
     var PADDING;
 
     function initbricks() { //inicializacija opek - polnjenje v tabelo
-        NROWS = 5;
-        NCOLS = 5;
-        BRICKWIDTH = (WIDTH / NCOLS) - 1;
-        BRICKHEIGHT = 15;
-        PADDING = 1;
+        NROWS = 7;
+        NCOLS = 7;
+        BRICKWIDTH = (WIDTH / NCOLS) - 6;
+        BRICKHEIGHT = 25;
+        PADDING = 5;
         bricks = new Array(NROWS);
         for (i = 0; i < NROWS; i++) {
             bricks[i] = new Array(NCOLS);
