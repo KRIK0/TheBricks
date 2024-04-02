@@ -70,6 +70,7 @@ function drawIt() {
 
     }
 
+    init();
     var intervalId = init();
     var paddlex;
     var paddleh;
