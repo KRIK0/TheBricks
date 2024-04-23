@@ -28,7 +28,7 @@ function drawIt() {
   var izpisTimer;
   var start = true;
   var intervalId = init();
-  
+
   function timer() {
       if (start == true) {
           sekunde++;
@@ -55,7 +55,6 @@ function drawIt() {
       return intervalId = setInterval(draw, 10);
 
   }
-
 
   function circle(x, y, r) {
       ctx.beginPath();

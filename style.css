@@ -1,7 +1,7 @@
 #canvas{
     border: 4px solid silver;
     border-radius: 7px;
-     background-image: url(slike/logorj.png);
+    background-image: url(images/Dark_Side_of_the_Moon.png);
     background-repeat: no-repeat;
     background-color: gray;
     background-size: 100%;
@@ -12,8 +12,7 @@
     text-align: center;
 }
 body{
-   background-color: #F6F1E9;
-    
+   background-image: url(images/The_wall_no_text.jpg);
 }
 #scoreboard{
     position: absolute;
