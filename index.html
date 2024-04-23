@@ -4,18 +4,21 @@
 <head>
     <title>The bricks</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="Slike/xico.png">
 
 </head>
 
 <body onload="drawIt()">
-    <p>Čas: <mark id="cas">00:00</mark></p>
-    <p>Točke: <mark id="tocke">0</mark></p>
+    <div id="scoreboard">
+        <p>Čas: <mark id="cas">00:00</mark></p>
+        <p>Točke: <mark id="tocke">0</mark></p>
+    </div>
     <div id="kanvas">
-        <canvas id="canvas" width="808" height="800"></canvas>
+        <canvas id="canvas" width="1000" height="1000"></canvas>
     </div>
     
 </body>
 
-<script src="script.js"></script>
+<script src="myscript.js"></script>
 <script src="jQuery.js"></script>
 </html>

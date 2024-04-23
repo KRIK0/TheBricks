@@ -1,32 +1,21 @@
-*{
-    padding: 0;
-}
-html{
-    margin: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: black;
-}
-p{
-    margin: 0;
-}
-body{
-    margin: 0;
-    background: url(images/small-wall.png) left top no-repeat,
-    url(images/tank.png) right bottom no-repeat,
-    url(images/tank.png) left bottom no-repeat;
-}
 #canvas{
-    border: 1px solid black;
-    
+    border: 4px solid silver;
+    border-radius: 7px;
+     background-image: url(slike/logorj.png);
+    background-repeat: no-repeat;
+    background-color: gray;
+    background-size: 100%;
+    background-position-y: center;
 }
 #kanvas{
-    position: relative;
-    margin-top: 100px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
     text-align: center;
-    background-color: white;
-    width: 808px;
-    height: 800px;
+}
+body{
+   background-color: #F6F1E9;
+    
+}
+#scoreboard{
+    position: absolute;
+    top: 200px;
 }
