@@ -60,7 +60,7 @@ function drawIt() {
       ctx.beginPath();
       ctx.arc(x, y, r, 0, Math.PI * 2, true);
       ctx.closePath();
-      ctx.fillStyle = "#000000";
+      ctx.fillStyle = "#7d9ab3";
       ctx.fill();
   }
 
@@ -316,7 +316,7 @@ function drawIt() {
           score--;
           console.log(score);
           if(!score){
-            window.close();
+            //window.close();
           }
           else{
             drawIt();
