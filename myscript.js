@@ -13,7 +13,7 @@ audio.volume = 0.05;
 document.addEventListener("click", (event) => {
 	audio.play();
 });
-var score = 4;
+var score = 1;
 function drawIt() {
 	var x = 150;
 	var y = 250;
@@ -29,7 +29,7 @@ function drawIt() {
 	var minuteI;
 	var intTimer;
 	var izpisTimer;
-	var start = true;
+	var start = false;
 	var intervalId = init();
 
 	function timer() {
@@ -49,13 +49,34 @@ function drawIt() {
 	function init() {
 		sekunde = 0;
 		izpisTimer = "00:00";
-		intTimer = setInterval(timer, 1000);
 		tocke = 0;
 		$("#tocke").html(tocke);
 		ctx = $("#canvas")[0].getContext("2d");
 		WIDTH = $("#canvas").width();
 		HEIGHT = $("#canvas").height();
-		return (intervalId = setInterval(draw, 10));
+		Swal.fire({
+			title: "Fink Ployd",
+			text: "Relax, enjoy the music and DESTROY the bricks!!!!",
+			imageUrl: "images/the_wall.png",
+			imageHeight: 150,
+			confirmButtonText: "OK",
+			confirmButtonColor: "#7d9ab3",
+			customClass: {
+				icon: "custom-icon-color",
+				title: "custom-title",
+				text: "custom-text",
+				confirmButton: "custom-confirm-button",
+			},
+		}).then((result) => {
+			if (result.isConfirmed) {
+				start = true;
+				intTimer = setInterval(timer, 1000);
+				// Start the game interval only after the user confirms the alert
+				intervalId = setInterval(draw, 10);
+			}
+		});
+
+		return null;
 	}
 
 	function circle(x, y, r) {
@@ -291,6 +312,42 @@ function drawIt() {
 		) {
 			dy = -dy;
 			bricks[row][col] = 0;
+			tocke += 100; //v primeru, da imajo opeko večjo utež lahko prištevate tudi npr. 2 ali 3; pred tem bi bilo smiselno dodati še kakšen pogoj, ki bi signaliziral mesta opek, ki imajo višjo vrednost
+			$("#tocke").html(tocke);
+		} else if (
+			y < NROWS * rowheight &&
+			row >= 0 &&
+			col >= 0 &&
+			bricks[row][col] == 2
+		) {
+			dy = -dy;
+			bricks[row][col] = 0;
+			tocke += 100; //v primeru, da imajo opeko večjo utež lahko prištevate tudi npr. 2 ali 3; pred tem bi bilo smiselno dodati še kakšen pogoj, ki bi signaliziral mesta opek, ki imajo višjo vrednost
+			$("#tocke").html(tocke);
+		}
+		if (tocke >= 2499) {
+			start = false; // ustavi igro
+			clearInterval(intervalId);
+			// Show sweet alert
+			Swal.fire({
+				title: "Congratulations!",
+				html: `Dancing cat was the message`,
+				imageUrl: "slike/cat.gif",
+				imageHeight: 90,
+				confirmButtonColor: "#7d9ab3",
+				customClass: {
+					icon: "custom-icon-color",
+					title: "custom-title",
+					text: "custom-text",
+					confirmButton: "custom-confirm-button",
+				},
+			}).then((result) => {
+				if (result.isConfirmed) {
+					dx = 0;
+					dy = 0;
+					location.reload(); // Reload the page to restart the game
+				}
+			});
 		}
 		if (x + dx > WIDTH - r || x + dx < 0 + r) dx = -dx;
 		if (y + dy < 0 + r) dy = -dy;
@@ -300,9 +357,28 @@ function drawIt() {
 				dy = -dy;
 			} else if (y + dy > HEIGHT - r) {
 				score--;
+				sekunde = 0;
 				console.log(score);
 				if (!score) {
-					//window.close();
+					start = false;
+					// Show sweet alert
+					Swal.fire({
+						title: "Better luck next time",
+						text: "Unfortunately you didn't DESTROY all the bricks",
+						icon: "info",
+						confirmButtonText: "Retry",
+						confirmButtonColor: "#7d9ab3",
+						customClass: {
+							icon: "custom-icon-color",
+							title: "custom-title",
+							text: "custom-text",
+							confirmButton: "custom-confirm-button",
+						},
+					}).then((result) => {
+						if (result.isConfirmed) {
+							location.reload();
+						}
+					});
 				} else {
 					drawIt();
 				}
