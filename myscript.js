@@ -331,9 +331,7 @@ function drawIt() {
 			// Show sweet alert
 			Swal.fire({
 				title: "Congratulations!",
-				html: `Dancing cat was the message`,
-				imageUrl: "slike/cat.gif",
-				imageHeight: 90,
+				html: `You successfully DESTROYED all the bricks`,
 				confirmButtonColor: "#7d9ab3",
 				customClass: {
 					icon: "custom-icon-color",
