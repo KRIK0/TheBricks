@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html lang="sl">
+	<head>
+		<title>Another brick in the wall</title>
+		<link
+			rel="stylesheet"
+			href="style.css"
+		/>
+		<link
+			rel="icon"
+			type="image/x-icon"
+			href="images/Dark_Side_of_the_Moon.png"
+		/>
+	</head>
 
-<head>
-    <title>Another brick in the wall</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="images/Dark_Side_of_the_Moon.png">
+	<body onload="drawIt()">
+		<div id="scoreboard">
+			<p>Čas: <mark id="cas">00:00</mark></p>
+			<p>Točke: <mark id="tocke">0</mark></p>
+		</div>
+		<div id="kanvas">
+			<canvas
+				id="canvas"
+				width="1000"
+				height="1000"
+			></canvas>
+		</div>
+	</body>
 
-</head>
-
-<body onload="drawIt()">
-    <div id="scoreboard">
-        <p>Čas: <mark id="cas">00:00</mark></p>
-        <p>Točke: <mark id="tocke">0</mark></p>
-    </div>
-    <div id="kanvas">
-        <canvas id="canvas" width="1000" height="1000"></canvas>
-    </div>
-    
-</body>
-
-<script src="myscript.js"></script>
-<script src="jQuery.js"></script>
+	<script src="myscript.js"></script>
+	<script src="jQuery.js"></script>
 </html>
