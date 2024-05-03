@@ -98,26 +98,6 @@ function drawIt() {
 		ctx.clearRect(0, 0, WIDTH, HEIGHT);
 	}
 	//END LIBRARY CODE
-	function draw() {
-		clear();
-		circle(x, y, 10);
-		x += dx;
-		y += dy;
-	}
-	function draw() {
-		clear();
-
-		circle(x, y, 10);
-
-		if (x + dx > WIDTH - r || x + dx < 0 + r) dx = -dx;
-
-		if (y + dy > HEIGHT - r || y + dy < 0 + r) dy = -dy;
-
-		x += dx;
-
-		y += dy;
-	}
-
 	var paddlex;
 	var paddleh;
 	var paddlew;
@@ -128,23 +108,6 @@ function drawIt() {
 		paddlew = 75;
 	}
 
-	function draw() {
-		clear();
-		circle(x, y, 10);
-		rect(paddlex, HEIGHT - paddleh, paddlew, paddleh);
-		if (x + dx > WIDTH - r || x + dx < 0 + r) dx = -dx;
-
-		if (y + dy < 0 + r) dy = -dy;
-		else if (y + dy > HEIGHT - r) {
-			if (x > paddlex && x < paddlex + paddlew) {
-				dx = 8 * ((x - (paddlex + paddlew / 2)) / paddlew);
-				dy = -dy;
-			} else clearInterval(intervalId);
-		}
-
-		x += dx;
-		y += dy;
-	}
 	init_paddle();
 	var rightDown = false;
 	var leftDown = false;
@@ -162,24 +125,6 @@ function drawIt() {
 	$(document).keydown(onKeyDown);
 	$(document).keyup(onKeyUp);
 
-	function draw() {
-		clear();
-		circle(x, y, 10);
-		//premik ploščice levo in desno
-		if (rightDown) paddlex += 5;
-		else if (leftDown) paddlex -= 5;
-		rect(paddlex, HEIGHT - paddleh, paddlew, paddleh);
-		if (x + dx > WIDTH - r || x + dx < 0 + r) dx = -dx;
-		if (y + dy < 0 + r) dy = -dy;
-		else if (y + dy > HEIGHT - r + r) {
-			if (x > paddlex && x < paddlex + paddlew) {
-				dx = 8 * ((x - (paddlex + paddlew / 2)) / paddlew);
-				dy = -dy;
-			} else if (y + dy > HEIGHT - r) clearInterval(intervalId);
-		}
-		x += dx;
-		y += dy;
-	}
 	var canvasMinX;
 	var canvasMaxX;
 
@@ -221,51 +166,6 @@ function drawIt() {
 	}
 
 	initbricks();
-	function draw() {
-		clear();
-		circle(x, y, 10);
-		//premik ploščice levo in desno
-		if (rightDown) {
-			if (paddlex + paddlew < WIDTH) {
-				paddlex += 5;
-			} else {
-				paddlex = WIDTH - paddlew;
-			}
-		} else if (leftDown) {
-			if (paddlex > 0) {
-				paddlex -= 5;
-			} else {
-				paddlex = 0;
-			}
-		}
-
-		rect(paddlex, HEIGHT - paddleh, paddlew, paddleh);
-
-		//riši opeke
-		for (i = 0; i < NROWS; i++) {
-			for (j = 0; j < NCOLS; j++) {
-				if (bricks[i][j] == 1) {
-					rect(
-						j * (BRICKWIDTH + PADDING) + PADDING,
-						i * (BRICKHEIGHT + PADDING) + PADDING,
-						BRICKWIDTH,
-						BRICKHEIGHT
-					);
-				}
-			}
-		}
-
-		if (x + dx > WIDTH - r || x + dx < 0 + r) dx = -dx;
-		if (y + dy < 0 + r) dy = -dy;
-		else if (y + dy > HEIGHT - r) {
-			if (x > paddlex && x < paddlex + paddlew) {
-				dx = 8 * ((x - (paddlex + paddlew / 2)) / paddlew);
-				dy = -dy;
-			} else if (y + dy > HEIGHT - r) clearInterval(intervalId);
-		}
-		x += dx;
-		y += dy;
-	}
 	function draw() {
 		clear();
 		circle(x, y, 10);
