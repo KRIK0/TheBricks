@@ -231,7 +231,7 @@ function drawIt() {
 			// Show sweet alert
 			Swal.fire({
 				title: "Congratulations!",
-				html: `You successfully DESTROYED all the bricks`,
+				html: `You successfully DESTROYED all the bricks! <br>You scored `+tocke+` points in `+izpisTimer,
 				confirmButtonColor: "#7d9ab3",
 				customClass: {
 					icon: "custom-icon-color",
@@ -262,7 +262,7 @@ function drawIt() {
 					// Show sweet alert
 					Swal.fire({
 						title: "Better luck next time",
-						text: "Unfortunately you didn't DESTROY all the bricks",
+						html: `Unfortunately you didn't DESTROY all the bricks. <br>You scored `+tocke+` points in `+izpisTimer,
 						icon: "info",
 						confirmButtonText: "Retry",
 						confirmButtonColor: "#7d9ab3",
